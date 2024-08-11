@@ -4,17 +4,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 1vmin;
+  gap: 2vmin;
   width: 100%;
-}
-
-.intervaloCard,
-.hipotesisCard {
-  width: 45%;
-}
-
-.datosCard {
-  width: 90%;
 }
 
 /* si está bajo 630px entonces quitar flex-wrap */
@@ -38,4 +29,37 @@
 
 mat-card {
   min-height: 12rem;
+}
+
+.datosTable {
+  border-collapse: separate;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 90%;
+}
+
+.datosTable td,
+.datosTable th {
+  border-left: solid gray 1px;
+  text-align: center;
+}
+
+.datosTable th {
+  font-weight: bold;
+  border-top: none;
+  border-bottom: solid gray 1px;
+  padding: 1vmin;
+  background-color: whitesmoke;
+}
+
+.datosTable td:first-child,
+.datosTable th:first-child {
+  border-left: none;
+}
+
+.content-container {
+  margin-top: 1vmin;
+  margin-bottom: 1vmin;
+  height: 15rem;
+  overflow-y: auto;
 }

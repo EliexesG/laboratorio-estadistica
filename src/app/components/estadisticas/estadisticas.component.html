@@ -1,4 +1,30 @@
 <section class="cards-container">
+  <mat-card class="datosCard">
+    <mat-card-header>
+      <mat-card-title>Datos Actuales</mat-card-title>
+      <mat-card-subtitle>Glucosa y Colesterol</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="content-container">
+        <table class="datosTable">
+          <thead>
+            <tr>
+              <th>Glucosa</th>
+              <th>Colesterol</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(row of rows; track row) {
+            <tr>
+              <td>{{ row.glucosa }}</td>
+              <td>{{ row.colesterol }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+  </mat-card>
   <mat-card class="intervaloCard">
     <mat-card-header>
       <mat-card-title>Intervalo de Confianza</mat-card-title>
@@ -7,7 +33,7 @@
       >
     </mat-card-header>
     <mat-card-content>
-      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
+      <div class="content-container">
         <p>El intervalo de Confianza seleccionado es:</p>
         <p class="resultado">
           Minimo: {{ decimalesFijos(interavaloConfianza.menor, 4) }}
@@ -21,19 +47,10 @@
   <mat-card class="hipotesisCard">
     <mat-card-header>
       <mat-card-title>Prueba de Hipotesis</mat-card-title>
+      <mat-card-subtitle>Pendiente</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
-        <p>Pendiente</p>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="datosCard">
-    <mat-card-header>
-      <mat-card-title>Datos Actuales</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
+      <div class="content-container">
         <p>Pendiente</p>
       </div>
     </mat-card-content>

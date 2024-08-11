@@ -1,0 +1,41 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1vmin;
+  width: 100%;
+}
+
+.intervaloCard,
+.hipotesisCard {
+  width: 45%;
+}
+
+.datosCard {
+  width: 90%;
+}
+
+/* si está bajo 630px entonces quitar flex-wrap */
+@media (max-width: 630px) {
+  .cards-container {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .intervaloCard,
+  .hipotesisCard,
+  .datosCard {
+    width: 90%;
+  }
+}
+
+.resultado {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+mat-card {
+  min-height: 12rem;
+}

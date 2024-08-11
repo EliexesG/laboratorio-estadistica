@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -60,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "laboratorio-estadistica:build:production"
+              "buildTarget": "laboratorio-estadistica:build:production"
             },
             "development": {
-              "browserTarget": "laboratorio-estadistica:build:development"
+              "buildTarget": "laboratorio-estadistica:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "laboratorio-estadistica:build"
+            "buildTarget": "laboratorio-estadistica:build"
           }
         },
         "test": {
@@ -87,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

@@ -1,0 +1,41 @@
+<section class="cards-container">
+  <mat-card class="intervaloCard">
+    <mat-card-header>
+      <mat-card-title>Intervalo de Confianza</mat-card-title>
+      <mat-card-subtitle
+        >Con un {{ intervalo * 100 }}% de confianza</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
+        <p>El intervalo de Confianza seleccionado es:</p>
+        <p class="resultado">
+          Minimo: {{ decimalesFijos(interavaloConfianza.menor, 4) }}
+        </p>
+        <p class="resultado">
+          Maximo: {{ decimalesFijos(interavaloConfianza.mayor, 4) }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="hipotesisCard">
+    <mat-card-header>
+      <mat-card-title>Prueba de Hipotesis</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
+        <p>Pendiente</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="datosCard">
+    <mat-card-header>
+      <mat-card-title>Datos Actuales</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div style="margin-top: 1vmin; margin-bottom: 1vmin">
+        <p>Pendiente</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>

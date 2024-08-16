@@ -42,6 +42,7 @@ export class EstadisticasComponent implements OnInit {
   calcularIntervaloConfianza() {
     const numbersA = this.rows.map((row) => row.glucosa);
     const numbersB = this.rows.map((row) => row.colesterol);
+    
     return this.calculosEstadisticos.calcularIntervaloConfianza(
       numbersA,
       numbersB,

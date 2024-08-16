@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-
 // @ts-ignore
 import jStat from 'jstat';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -14,19 +13,17 @@ export class CalculosEstadisticosService {
     return sum / numbers.length;
   }
 
-  calcularDesviacion(numbers: number[]) {
+  calcularDesviacion(numbers: number[]): number {
     return jStat.stdev(numbers);
   }
 
   calcularErrorEstandarDiferencia(numbersA: number[], numbersB: number[]) {
-    return Math.sqrt(
-      this.calcularDesviacion(numbersA) / numbersA.length +
-        this.calcularDesviacion(numbersB) / numbersB.length
-    );
-  }
+    let desviacionA = this.calcularDesviacion(numbersA) ** 2;
+    let desviacionB = this.calcularDesviacion(numbersB) ** 2;
 
-  calcularZ(intervaloConfianza: number) {
-    return jStat.normal.inv(intervaloConfianza, 0, 1);
+    return Math.sqrt(
+      desviacionA / numbersA.length + desviacionB / numbersB.length
+    );
   }
 
   // el intervalo de confianza es un numero como 0.95
@@ -35,16 +32,19 @@ export class CalculosEstadisticosService {
     numbersB: number[],
     intervaloConfianza: number
   ) {
-    let diferenciaMedias =
-      this.calcularPromedio(numbersA) - this.calcularPromedio(numbersB);
-    let Z = this.calcularZ(intervaloConfianza);
+    let mediaA = this.calcularPromedio(numbersA);
+    let mediaB = this.calcularPromedio(numbersB);
+    let diferenciaMedias = mediaA - mediaB;
+    let z = intervaloConfianza + 1;
+
+    let errorEstandar = this.calcularErrorEstandarDiferencia(
+      numbersA,
+      numbersB
+    );
+
     return {
-      minimo:
-        diferenciaMedias -
-        Z * this.calcularErrorEstandarDiferencia(numbersA, numbersB),
-      maximo:
-        diferenciaMedias +
-        Z * this.calcularErrorEstandarDiferencia(numbersA, numbersB),
+      minimo: diferenciaMedias - z * errorEstandar,
+      maximo: diferenciaMedias + z * errorEstandar,
     };
   }
 
@@ -89,7 +89,7 @@ export class CalculosEstadisticosService {
 
     // t-crit y -p
     let tCrit: number = this.calcularTCrit(significancia, n - 1);
-    let menosP: number = this.calcularValorMenosP(t, n- 1);
+    let menosP: number = this.calcularValorMenosP(t, n - 1);
 
     return {
       t,

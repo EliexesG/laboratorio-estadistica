@@ -1,58 +1,62 @@
 <section class="cards-container">
-  <mat-card class="datosCard">
-    <mat-card-header>
-      <mat-card-title>Datos Actuales</mat-card-title>
-      <mat-card-subtitle>Glucosa y Colesterol</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="content-container">
-        <table class="datosTable">
-          <thead>
-            <tr>
-              <th>Glucosa</th>
-              <th>Colesterol</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for(row of rows; track row) {
-            <tr>
-              <td>{{ row.glucosa }}</td>
-              <td>{{ row.colesterol }}</td>
-            </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="intervaloCard">
-    <mat-card-header>
-      <mat-card-title>Intervalo de Confianza</mat-card-title>
-      <mat-card-subtitle
-        >Con un {{ intervalo * 100 }}% de confianza</mat-card-subtitle
-      >
-    </mat-card-header>
-    <mat-card-content>
-      <div class="content-container">
-        <p>El intervalo de Confianza seleccionado es:</p>
+  <!-- Datos actuales -->
+  <app-basic-card title="Datos Actuales" subTitle="Glucosa y Colesterol">
+    <div class="content-container">
+      <table class="datosTable">
+        <thead>
+          <tr>
+            <th>Glucosa</th>
+            <th>Colesterol</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(row of rows; track row) {
+          <tr>
+            <td>{{ row.glucosa }}</td>
+            <td>{{ row.colesterol }}</td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </app-basic-card>
+
+  <!-- Intervalo de confianza -->
+  <app-basic-card
+    title="Intervalo de Confianza"
+    [subTitle]="'Con un ' + intervalo * 100 + '% de confianza'"
+  >
+    <div class="content-container">
+      <h4>El intervalo de Confianza seleccionado es:</h4>
+      <div class="resultado-container">
         <p class="resultado">
-          Minimo: {{ decimalesFijos(interavaloConfianza.menor, 4) }}
+          Minimo => {{ decimalesFijos(interavaloConfianza.minimo, 4) }}
         </p>
         <p class="resultado">
-          Maximo: {{ decimalesFijos(interavaloConfianza.mayor, 4) }}
+          Maximo => {{ decimalesFijos(interavaloConfianza.maximo, 4) }}
         </p>
       </div>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="hipotesisCard">
-    <mat-card-header>
-      <mat-card-title>Prueba de Hipotesis</mat-card-title>
-      <mat-card-subtitle>Pendiente</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="content-container">
-        <p>Pendiente</p>
+    </div>
+  </app-basic-card>
+
+  <!-- Prueba de hipotesis -->
+  <app-basic-card
+    title="Prueba de Hipotesis"
+    [subTitle]="
+      'Con un valor de significacion del ' + significancia * 100 + '%'
+    "
+  >
+    <div class="content-container">
+      <h4>La prueba de Hipotesis queda en:</h4>
+      <div class="resultado-container">
+        <p class="resultado">t => {{ decimalesFijos(pruebaHipotesis.t, 4) }}</p>
+        <p class="resultado">
+          tCrit => {{ decimalesFijos(pruebaHipotesis.tCrit, 4) }}
+        </p>
+        <p class="resultado">
+          Valor-p => {{ decimalesFijos(pruebaHipotesis.menosP, 4) }}
+        </p>
       </div>
-    </mat-card-content>
-  </mat-card>
+    </div>
+  </app-basic-card>
 </section>

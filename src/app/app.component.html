@@ -1,12 +1,17 @@
-<mat-toolbar color="primary">
+<mat-toolbar
+  color="tertiary"
+  style="width: 100%; position: sticky; top: 0; z-index: 1000"
+>
   <button mat-icon-button>
     <mat-icon>home</mat-icon>
   </button>
+  <span>Laboratorio Estadistica</span>
 </mat-toolbar>
 <body>
   <app-estadisticas
     style="width: 100%"
     [intervalo]="intervalo"
+    [significancia]="significancia"
     [rows]="defaultData"
   ></app-estadisticas>
 </body>

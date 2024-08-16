@@ -15,19 +15,25 @@
     flex-direction: column;
   }
 
-  .intervaloCard,
-  .hipotesisCard,
-  .datosCard {
+  app-basic-card {
     width: 90%;
   }
+}
+
+.resultado-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .resultado {
   margin-bottom: 0;
   font-weight: bold;
+  font-size: larger;
 }
 
-mat-card {
+app-basic-card {
   min-height: 12rem;
 }
 

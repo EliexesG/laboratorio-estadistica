@@ -12,4 +12,5 @@ export class AppComponent {
   //default data
   defaultData: row[] = defaultData;
   intervalo: number = 0.95;
+  significancia: number = 0.05;
 }

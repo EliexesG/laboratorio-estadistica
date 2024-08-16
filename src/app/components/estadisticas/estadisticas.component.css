@@ -15,9 +15,18 @@
     flex-direction: column;
   }
 
+  .parrafo {
+    width: 100% !important;
+  }
+
   app-basic-card {
     width: 90%;
   }
+}
+
+.parrafo {
+  width: 20rem;
+  text-align: justify;
 }
 
 .resultado-container {

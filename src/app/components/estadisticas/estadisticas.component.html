@@ -27,7 +27,11 @@
     [subTitle]="'Con un ' + intervalo * 100 + '% de confianza'"
   >
     <div class="content-container">
-      <h4>El intervalo de Confianza seleccionado es:</h4>
+      <p class="parrafo">
+        a) Determinar el intervalo de confianza al 95% de la diferencia de las
+        medias entre la glucosa y el colesterol e interprete la información
+        resultante.
+      </p>
       <div class="resultado-container">
         <p class="resultado">
           Minimo => {{ decimalesFijos(interavaloConfianza.minimo, 4) }}
@@ -36,6 +40,16 @@
           Maximo => {{ decimalesFijos(interavaloConfianza.maximo, 4) }}
         </p>
       </div>
+      <p class="parrafo" style="margin: 15px 0">
+        Con base en los resultados del Intervalo de Confianza podemos afirmar
+        que la diferencia promedio de los niveles de Colesterol y Glucosa en la
+        población están entre
+        {{ decimalesFijos(interavaloConfianza.minimo, 4) }} a
+        {{ decimalesFijos(interavaloConfianza.maximo, 4) }} unidades. El Sentido
+        de la Diferencia del intervalo es negativa, esto confirma que en
+        promedio los niveles de glucosa son más bajos que los niveles de
+        colesterol de esta población.
+      </p>
     </div>
   </app-basic-card>
 
@@ -47,7 +61,12 @@
     "
   >
     <div class="content-container">
-      <h4>La prueba de Hipotesis queda en:</h4>
+      <p class="parrafo">
+        b) Realice una prueba de hipótesis con un valor de significancia del 5%,
+        para determinar que una mayoría de los pacientes tienen una glucosa
+        superior a la media poblacional de 120, utilizar para la demostración la
+        media muestral de los datos antes seleccionados.
+      </p>
       <div class="resultado-container">
         <p class="resultado">t => {{ decimalesFijos(pruebaHipotesis.t, 4) }}</p>
         <p class="resultado">
@@ -57,6 +76,13 @@
           Valor-p => {{ decimalesFijos(pruebaHipotesis.menosP, 4) }}
         </p>
       </div>
+      <p class="parrafo" style="margin: 15px 0">
+        Dado que la prueba supera el valor critico y el valor de -p es menor que
+        el nivel de significancia se rechaza la hipótesis nula. Por ello hay
+        evidencia para afirmar que la media de la glucosa de los pacientes en la
+        muestra es superior a la media poblacional de 120, lo que sugiere que la
+        mayoría de los pacientes tienen una glucosa superior a 120.
+      </p>
     </div>
   </app-basic-card>
 </section>
